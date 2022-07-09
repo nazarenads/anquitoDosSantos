@@ -1,9 +1,10 @@
 import './App.css';
+import Anquito from './components/Anquito';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Anquito/>
     </div>
   );
 }

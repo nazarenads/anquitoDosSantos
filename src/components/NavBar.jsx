@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
+import CartWidget from "./CartWidget";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +46,17 @@ function NavBar() {
                   >
                     FAQ
                   </a>
-
+                  
                 </div>
               </div>
+            </div>
+            <div className="hidden md:block">
+                <a
+                    href="#"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                    <CartWidget />
+                </a>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
@@ -134,6 +143,12 @@ function NavBar() {
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   FAQ
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  <CartWidget />
                 </a>
 
               </div>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 function ItemCount({stock, initial}) {
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(Number(initial));
 
     function increaseCounter(){
         if (counter < stock) {

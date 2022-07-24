@@ -1,14 +1,37 @@
-import React from 'react'
-import ProductItem from './ProductItem'
+import React, {useEffect, useState} from 'react'
+import ItemList from './ItemList'
+import productsDB from "../data/products"
+
+function getProducts(){
+  return new Promise( (resolve, reject) => {
+    setTimeout(() => {
+      resolve(productsDB)
+    },
+     500 
+    )
+  }
+  )
+}
 
 function ItemListContainer( props ) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=> {
+    getProducts().then(
+      respuestaPromise => {
+        console.log(respuestaPromise)
+        setProducts(respuestaPromise)
+      })
+    },[])
+
   return (
       <>
       <h1>{props.greeting}</h1>
       <div className='flex justify-center'>
-        <ProductItem image={"./assets/product-1.jpg"} title={"Gírgolas"} description={"Descripción"}/>
-        <ProductItem image={"./assets/product-2.jpg"} title={"Risotto de calabaza"} description={"Descripción"}/>
-        <ProductItem image={"./assets/product-3.jpg"} title={"Kimchi"} description={"Descripción"}/>
+        <ItemList products={products}/>
+        {/* <ProductItem data={products[0]}/>
+        <ProductItem data={products[1]}/>
+        <ProductItem data={products[2]}/> */}
       </div>
       </>
       

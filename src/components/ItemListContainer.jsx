@@ -26,12 +26,8 @@ function ItemListContainer( props ) {
 
   return (
       <>
-      <h1>{props.greeting}</h1>
       <div className='flex justify-center'>
         <ItemList products={products}/>
-        {/* <ProductItem data={products[0]}/>
-        <ProductItem data={products[1]}/>
-        <ProductItem data={products[2]}/> */}
       </div>
       </>
       

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import productsDB from "../data/products"
+import { useParams } from 'react-router-dom'
 
 function getProducts(){
   return new Promise( (resolve, reject) => {
@@ -15,18 +16,26 @@ function getProducts(){
 
 function ItemListContainer( props ) {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
   useEffect(()=> {
-    getProducts().then(
-      respuestaPromise => {
-        console.log(respuestaPromise)
-        setProducts(respuestaPromise)
+    if (categoryId){
+      getProducts().then(
+        respuestaPromise => {
+          setProducts(respuestaPromise.filter( product => product.category === categoryId ))
+        })
+    }
+    else {
+      getProducts().then(
+        respuestaPromise => {
+          setProducts(respuestaPromise)
       })
-    },[])
+    }
+    },[categoryId])
 
   return (
       <>
-      <div className='flex justify-center'>
+      <div className='flex flex-wrap justify-center'>
         <ItemList products={products}/>
       </div>
       </>

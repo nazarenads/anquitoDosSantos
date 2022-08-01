@@ -6,7 +6,7 @@ const products = [
         description: "Descripción",
         stock: 6,
         price: 2400,
-        category: "Comida"
+        category: "food"
     },
     {   
         id: 2,
@@ -15,7 +15,7 @@ const products = [
         description: "Descripción",
         stock: 10,
         price: 2000,
-        category: "Comida"
+        category: "food"
     },
     {   
         id: 3,
@@ -24,7 +24,7 @@ const products = [
         description: "Descripción",
         stock: 5,
         price: 1400,
-        category: "Comida"
+        category: "food"
     },
     {   
         id: 4,
@@ -33,7 +33,7 @@ const products = [
         description: "Descripción",
         stock: 20,
         price: 990,
-        category: "Bebida"
+        category: "drinks"
     },
     {   
         id: 5,
@@ -42,7 +42,7 @@ const products = [
         description: "Descripción",
         stock: 22,
         price: 750,
-        category: "Bebida"
+        category: "drinks"
     },
     {   
         id: 6,
@@ -51,7 +51,7 @@ const products = [
         description: "Descripción",
         stock: 10,
         price: 690,
-        category: "Bebida"
+        category: "drinks"
     },
     
 ]

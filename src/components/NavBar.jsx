@@ -12,11 +12,13 @@ function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
+                <Link to="/">
                 <img
                   className="h-8 w-8"
                   src="../assets/anquito.png"
                   alt="Zapallo anco"
                 />
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -28,13 +30,13 @@ function NavBar() {
                   </Link>
 
                   <Link
-                    to="/category/Comida"
+                    to="/category/food"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Food
                   </Link>
                   <Link
-                    to="/category/Bebida"
+                    to="/category/drinks"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Drinks
@@ -124,33 +126,38 @@ function NavBar() {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                  href="#"
+                <Link
+                    to="/"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Home
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                    to="/category/food"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Store
-                </a>
-
-                <a
-                  href="#"
+                  Food
+                </Link>
+                <Link
+                    to="/category/drinks"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Drinks
+                </Link>
+                <Link
+                  to="/about-us"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   About us
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="/faq"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   FAQ
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function ItemCount({stock, initial}) {
+function ItemCount({stock, initial, setQuantitySelected}) {
     const [counter, setCounter] = useState(initial);
 
     function increaseCounter(){
@@ -14,6 +14,9 @@ function ItemCount({stock, initial}) {
             setCounter(counter - 1)
         } else {}
     }
+    const onAdd = () => {
+        setQuantitySelected(counter)
+      }
 
   return (
     <>
@@ -22,6 +25,7 @@ function ItemCount({stock, initial}) {
         {counter}
     </p>
     <button onClick={increaseCounter} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">+</button>
+    <button onClick={onAdd}> Agregar al carrito </button>
     </>
   )
 }

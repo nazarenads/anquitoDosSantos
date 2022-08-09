@@ -12,18 +12,10 @@ function ProductItem({product}) {
         <p className="text-gray-700 text-base">
             {description}
         </p>
-        <div className="flex justify-center pb-2">
-        <ItemCount stock={stock} initial={1}/>
-        </div>
         <div className="flex justify-center p-2">
         <Link to={`/item/${id}`}>
           <p><strong>Ver detalle</strong></p>
         </Link>
-        </div>
-        <div className="flex justify-center">
-        <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-        Agregar al carrito
-        </button>
         </div>
     </div>
     </div>

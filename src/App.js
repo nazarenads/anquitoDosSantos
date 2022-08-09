@@ -7,6 +7,7 @@ import Faq from './pages/Faq';
 import Detail from './pages/Detail';
 import Store from './pages/Store';
 import ItemListContainer from './components/ItemListContainer';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
         <Route path="/about-us" element={<AboutUs/>}/>
         <Route path="/faq" element={<Faq/>}/>
+        <Route path='/cart' element={<Cart/>}/>
       </Routes>
     </BrowserRouter>
     

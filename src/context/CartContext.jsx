@@ -35,6 +35,7 @@ const CartProvider = ({children}) => {
     const clearCart = () => {
         setCartProducts([])
         setCartCounter(0)
+        setTotalCartAmount(0)
     }
 
     const removeProduct = (id) => {

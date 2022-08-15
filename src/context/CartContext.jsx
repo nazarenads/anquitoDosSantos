@@ -28,23 +28,19 @@ const CartProvider = ({children}) => {
             setCartProducts([...cartProducts, product]);
         }
         setCartCounter(cartCounter + product.counter);
+        console.log("cart counter desde addProductToCart", cartCounter)
       };
 
 
     const clearCart = () => {
         setCartProducts([])
+        setCartCounter(0)
     }
 
     const removeProduct = (id) => {
+        const productToRemove = cartProducts.find(product => product.id === id)
         setCartProducts(cartProducts.filter(product => product.id !== id));
-    }
-
-    const totalPrice = () => {
-        return cartProducts.reduce((prev, act) => prev + act.quantity * act.price, 0)
-    }
-
-    const totalProducts = () => {
-        return cartProducts.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0)
+        setCartCounter(cartCounter - productToRemove.counter)
     }
 
     const data = {
@@ -53,7 +49,8 @@ const CartProvider = ({children}) => {
         addProductToCart,
         clearCart,
         isInCart,
-        removeProduct
+        removeProduct,
+        cartCounter
     }
 
     return (

@@ -5,6 +5,7 @@ const CartContext = React.createContext();
 const CartProvider = ({children}) => {
     const [cartCounter, setCartCounter] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
+    const [totalCartAmount, setTotalCartAmount] = useState(0);
 
     const isInCart = (id) => {
         return cartProducts.find(product => product.id === id) ? true : false;
@@ -27,6 +28,7 @@ const CartProvider = ({children}) => {
             setCartProducts([...cartProducts, product]);
         }
         setCartCounter(cartCounter + product.counter);
+        setTotalCartAmount(totalCartAmount + (product.price * product.counter));
       };
 
 
@@ -39,7 +41,9 @@ const CartProvider = ({children}) => {
         const productToRemove = cartProducts.find(product => product.id === id)
         setCartProducts(cartProducts.filter(product => product.id !== id));
         setCartCounter(cartCounter - productToRemove.counter)
+        setTotalCartAmount(totalCartAmount - (productToRemove.price * productToRemove.counter));
     }
+
 
     const data = {
         cartProducts,
@@ -48,7 +52,8 @@ const CartProvider = ({children}) => {
         clearCart,
         isInCart,
         removeProduct,
-        cartCounter
+        cartCounter,
+        totalCartAmount
     }
 
     return (

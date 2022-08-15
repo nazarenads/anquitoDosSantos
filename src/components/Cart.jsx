@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom';
 
 function Cart() {
-  const {cartProducts, clearCart, removeProduct, cartCounter} = useContext(CartContext);
+  const {cartProducts, clearCart, removeProduct, cartCounter, totalCartAmount} = useContext(CartContext);
   return (
     <>
     <div class="bg-neutral-50 py-12">
@@ -63,7 +63,7 @@ function Cart() {
                   <button onClick={clearCart} type="button" class="text-neutral-400 hover:text-neutral-900">
                     <p class="text-sm font-normal">Empty cart</p>
                   </button>
-                </div> : <p> No items to show</p>
+                </div> : <p>Your cart is empty. <Link to="/" className='underline'>Go back to select your products.</Link></p>
             }
           </div>
           
@@ -73,13 +73,17 @@ function Cart() {
             <div class="flex flex-col gap-2">
               <div class="flex justify-between text-base text-gray-900">
                 <p>Total</p>
-                <p>$262.00</p>
+                <p>$ {totalCartAmount}</p>
+              </div>
+              <div class="flex justify-between text-base text-gray-900">
+                <p>Shipping</p>
+                <p>Free</p>
               </div>
               <div>
                 <div class="my-2 w-full border-t border-gray-300"></div>
                 <div class="flex justify-between text-base font-bold text-gray-900">
                   <p>Final</p>
-                  <p>$262.00</p>
+                  <p>$ {totalCartAmount}</p>
                 </div>
                 <p class="mt-0.5 text-sm text-gray-400">including taxes</p>
               </div>

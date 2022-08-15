@@ -8,21 +8,24 @@ import Detail from './pages/Detail';
 import Store from './pages/Store';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
+import CartProvider from './context/CartContext';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<Store/>}/>
-        <Route path="/item/:productId" element={<Detail/>}/>
-        <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
-        <Route path="/about-us" element={<AboutUs/>}/>
-        <Route path="/faq" element={<Faq/>}/>
-        <Route path='/cart' element={<Cart/>}/>
-      </Routes>
+      <CartProvider>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/products" element={<Store/>}/>
+          <Route path="/item/:productId" element={<Detail/>}/>
+          <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
+          <Route path="/about-us" element={<AboutUs/>}/>
+          <Route path="/faq" element={<Faq/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
     
   );

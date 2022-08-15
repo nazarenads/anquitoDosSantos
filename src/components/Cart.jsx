@@ -14,7 +14,6 @@ function Cart() {
               <h3 class="text-2xl font-bold">Shopping cart</h3>
             </div>
             <ul role="list" class="-my-6 divide-y divide-neutral-200">
-              {console.log("cartProducts inside cart", cartProducts)}
               {cartProducts.map((product) => {
                 return (
                   <li class="flex py-6">

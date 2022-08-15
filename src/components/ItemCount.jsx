@@ -17,10 +17,8 @@ function ItemCount({stock, initial, setQuantitySelected, productData}) {
         } else {}
     }
     const onAdd = () => {
-        console.log("Agregar al carrito", productData)
         setQuantitySelected(counter)
         addProductToCart({ ...productData, counter })
-        console.log("Carrito desde ItemCount", cartProducts);
     }
 
   return (

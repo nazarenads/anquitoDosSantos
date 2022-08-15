@@ -11,7 +11,6 @@ const CartProvider = ({children}) => {
     }
 
     const addProductToCart = (product) => {
-        console.log("Product desde addProductToCart", product)
         if (isInCart(product.id)) {
           const newArray = cartProducts.map((productInCart) => {
             if (productInCart.id === product.id) {
@@ -28,7 +27,6 @@ const CartProvider = ({children}) => {
             setCartProducts([...cartProducts, product]);
         }
         setCartCounter(cartCounter + product.counter);
-        console.log("cart counter desde addProductToCart", cartCounter)
       };
 
 

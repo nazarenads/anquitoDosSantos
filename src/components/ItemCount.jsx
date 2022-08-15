@@ -1,24 +1,21 @@
 import React, {useState} from 'react'
-import { useCartContext } from '../context/CartContext';
 
-function ItemCount({stock, initial, setQuantitySelected, productData}) {
-    const {quantity, setQuantity} = useState(initial);
-    const {addProduct} = useCartContext();
+function ItemCount({stock, initial, setQuantitySelected}) {
+    const [counter, setCounter] = useState(initial);
 
     function increaseCounter(){
-        if (quantity < stock) {
-            setQuantity(quantity + 1)
+        if (counter < stock) {
+            setCounter(counter + 1)
         } else {}
     }
 
     function decreaseCounter(){
-        if (quantity > initial) {
-            setQuantity(quantity - 1)
+        if (counter > initial) {
+            setCounter(counter - 1)
         } else {}
     }
     const onAdd = () => {
-        setQuantitySelected(quantity)
-        addProduct(productData, quantity)
+        setQuantitySelected(counter)
     }
 
   return (
@@ -26,7 +23,7 @@ function ItemCount({stock, initial, setQuantitySelected, productData}) {
     <div className="flex justify-center">
         <button onClick={decreaseCounter} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">-</button>
         <p className="text-gray-800 font-semibold py-2 px-4">
-            {quantity}
+            {counter}
         </p>
         <button onClick={increaseCounter} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">+</button>
     </div>

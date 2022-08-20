@@ -1,9 +1,31 @@
 import React, {useContext} from 'react'
 import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 function Cart() {
   const {cartProducts, clearCart, removeProduct, cartCounter, totalCartAmount} = useContext(CartContext);
+
+  const order = {
+    buyer : {
+      name: "Nazarena Dos Santos",
+      email: "nazarenads@gmail.com",
+      phone: "1135652774",
+      address: "Sarmiento 3849, 4to A, CABA"
+    },
+    items: cartProducts.map(product => ({id: product.id, title: product.title, price: product.price, quantity: product.counter})),
+    total: totalCartAmount
+  }
+
+  const handleClick = () => {
+    const db = getFirestore();
+    const orderCollection = collection(db, 'orders')
+    addDoc(orderCollection, order).then(
+      ({id}) => console.log(id)
+    )
+  }
+
+
   return (
     <>
     <div class="bg-neutral-50 py-12">
@@ -89,7 +111,7 @@ function Cart() {
               </div>
               <div class="mt-auto flex flex-col gap-2 pt-4">
                 <div class="">
-                  <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-neutral-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-neutral-900">Go to checkout</a>
+                  <a onClick={handleClick} href="#" class="flex items-center justify-center rounded-md border border-transparent bg-neutral-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-neutral-900">Go to checkout</a>
                 </div>
                 <div class="flex justify-center text-center text-sm text-gray-500">
                   <p>

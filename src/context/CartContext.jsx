@@ -6,6 +6,7 @@ const CartProvider = ({children}) => {
     const [cartCounter, setCartCounter] = useState(0);
     const [cartProducts, setCartProducts] = useState([]);
     const [totalCartAmount, setTotalCartAmount] = useState(0);
+    const [orderId, setOrderId] = useState(0);
 
     const isInCart = (id) => {
         return cartProducts.find(product => product.id === id) ? true : false;
@@ -54,7 +55,9 @@ const CartProvider = ({children}) => {
         isInCart,
         removeProduct,
         cartCounter,
-        totalCartAmount
+        totalCartAmount,
+        orderId, 
+        setOrderId
     }
 
     return (

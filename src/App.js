@@ -9,6 +9,8 @@ import Store from './pages/Store';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
 import CartProvider from './context/CartContext';
+import Checkout from './pages/Checkout';
+import SuccessPage from './pages/SuccessPage';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/about-us" element={<AboutUs/>}/>
           <Route path="/faq" element={<Faq/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/success-page' element={<SuccessPage/>}/>
         </Routes>
       </CartProvider>
     </BrowserRouter>
